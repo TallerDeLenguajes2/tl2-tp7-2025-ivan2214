@@ -38,7 +38,7 @@ namespace tl2_tp7_2025_ivan2214.Repositorios
         {
           IdProducto = reader.GetInt32(0),
           Descripcion = reader.GetString(1),
-          Precio = reader.GetInt32(2)
+          Precio = reader.GetFloat(2)
         });
       }
 

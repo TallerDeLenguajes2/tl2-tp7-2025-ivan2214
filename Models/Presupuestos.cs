@@ -18,7 +18,7 @@ namespace tl2_tp7_2025_ivan2214.Models
 
     public double MontoPresupuestoConIva()
     {
-      var subtotal = MontoPresupuesto();
+      double subtotal = MontoPresupuesto();
       return subtotal * 1.21;
     }
 
