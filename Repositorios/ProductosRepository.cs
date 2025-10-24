@@ -23,7 +23,7 @@ namespace tl2_tp7_2025_ivan2214.Repositorios
 
     public List<Producto> BuscarTodosLosProductos()
     {
-      var productos = new List<Producto>();
+      List<Producto> productos = new List<Producto>();
 
       using var connection = new SqliteConnection(_connectionString);
       connection.Open();
@@ -80,7 +80,6 @@ namespace tl2_tp7_2025_ivan2214.Repositorios
       using var command = new SqliteCommand(query, connection);
       command.Parameters.AddWithValue("@descripcion", producto.Descripcion);
       command.Parameters.AddWithValue("@precio", producto.Precio);
-
       command.ExecuteNonQuery();
     }
 
