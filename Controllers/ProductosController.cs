@@ -22,7 +22,7 @@ namespace tl2_tp7_2025_ivan2214.Controllers
     public ActionResult CrearProducto([FromBody] Producto producto)
     {
       _repo.CrearProducto(producto);
-      return CreatedAtAction(nameof(ObtenerPorId), new { Id = producto.IdProducto }, producto);
+      return Ok("Producto creado exitosamente");
     }
 
 
@@ -33,7 +33,7 @@ namespace tl2_tp7_2025_ivan2214.Controllers
       if (existente == null) return NotFound();
 
       _repo.ActualizarProducto(id, producto);
-      return NoContent();
+      return Ok("Producto actualizado exitosamente");
     }
 
 

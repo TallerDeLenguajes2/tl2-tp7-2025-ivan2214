@@ -56,7 +56,7 @@ namespace tl2_tp7_2025_ivan2214.Repositorios
       using var conexion = new SqliteConnection(_connectionString);
       conexion.Open();
 
-      string sql = "SELECT IdPresupuesto, NombreDestinatario, FechaCreacion FROM Presupuesto";
+      string sql = "SELECT IdPresupuesto, NombreDestinatario, FechaCreacion FROM Presupuestos";
       using var comando = new SqliteCommand(sql, conexion);
       using var lector = comando.ExecuteReader();
 
@@ -79,7 +79,7 @@ namespace tl2_tp7_2025_ivan2214.Repositorios
       using var conexion = new SqliteConnection(_connectionString);
       conexion.Open();
 
-      string sqlPresupuesto = "SELECT Id, NombreDestinatario, FechaCreacion FROM Presupuesto WHERE Id = @Id";
+      string sqlPresupuesto = "SELECT Id, NombreDestinatario, FechaCreacion FROM Presupuestos WHERE Id = @Id";
       using var cmdPresupuesto = new SqliteCommand(sqlPresupuesto, conexion);
       cmdPresupuesto.Parameters.Add(new SqliteParameter("@Id", id));
 
@@ -98,7 +98,7 @@ namespace tl2_tp7_2025_ivan2214.Repositorios
 
       string sqlDetalle = @"
             SELECT pd.Cantidad, p.Id AS ProductoId, p.Nombre, p.Precio
-            FROM PresupuestoDetalle pd
+            FROM PresupuestosDetalle pd
             INNER JOIN Producto p ON pd.ProductoId = p.Id
             WHERE pd.PresupuestoId = @Id";
 
@@ -144,7 +144,7 @@ namespace tl2_tp7_2025_ivan2214.Repositorios
       using var conexion = new SqliteConnection(_connectionString);
       conexion.Open();
 
-      string sql = "DELETE FROM Presupuesto WHERE Id = @Id";
+      string sql = "DELETE FROM Presupuestos WHERE Id = @Id";
       using var comando = new SqliteCommand(sql, conexion);
       comando.Parameters.AddWithValue("@Id", id);
       comando.ExecuteNonQuery();
